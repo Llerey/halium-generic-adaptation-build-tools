@@ -48,7 +48,7 @@ esac
 
 cd "$TMPDOWN"
     [ -d aarch64-linux-android-4.9 ] || git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b pie-gsi --depth 1
-    GCC_PATH="$TMPDOWN/aarch64-linux-android-4.9"
+    GCC_PATH="$TMPDOWN/proton-clang/bin"
     if $deviceinfo_kernel_clang_compile; then
         [ -d linux-x86 ] || git clone https://github.com/kdrag0n/proton-clang.git --depth 1
         CLANG_PATH="$TMPDOWN/proton-clang/bin"
