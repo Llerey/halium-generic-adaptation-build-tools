@@ -48,10 +48,10 @@ esac
 
 cd "$TMPDOWN"
     [ -d aarch64-linux-android-4.9 ] || git clone https://github.com/kdrag0n/proton-clang --depth 1
-    GCC_PATH="$TMPDOWN/proton-clang/bin"
+    GCC_PATH="$TMPDOWN/proton-clang"
     if $deviceinfo_kernel_clang_compile; then
         [ -d proton-clang ] || git clone https://github.com/kdrag0n/proton-clang --depth 1
-        CLANG_PATH="$TMPDOWN/proton-clang/bin"
+        CLANG_PATH="$TMPDOWN/proton-clang"
         rm -rf "$TMPDOWN/linux-x86/.git" "$TMPDOWN/linux-x86/"!(clang-r383902)
     fi
     if [ "$deviceinfo_arch" == "aarch64" ]; then
