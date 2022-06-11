@@ -51,7 +51,7 @@ cd "$TMPDOWN"
     GCC_PATH="$TMPDOWN/proton-clang"
     if $deviceinfo_kernel_clang_compile; then
         [ -d linux-x86 ] || git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 -b llvm-r383902b --depth 1
-        CLANG_PATH="$TMPDOWN/linux-x86"
+        CLANG_PATH="$TMPDOWN/linux-x86/llvm-r383902b"
         rm -rf "$TMPDOWN/linux-x86/.git" "$TMPDOWN/linux-x86/"!(llvm-r383902b)
     fi
     if [ "$deviceinfo_arch" == "aarch64" ]; then
