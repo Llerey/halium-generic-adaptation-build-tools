@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ex
 
+export PATH="$HOME/toolchains/proton-clang/bin:$PATH"
+
 TMPDOWN=$1
 INSTALL_MOD_PATH=$2
 HERE=$(pwd)
