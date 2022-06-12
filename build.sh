@@ -47,12 +47,11 @@ case $deviceinfo_arch in
 esac
 
 cd "$TMPDOWN"
-    [ -d proton-clang ] || git clone https://github.com/kdrag0n/proton-clang --depth 1
-    GCC_PATH="$TMPDOWN/proton-clang"
+    [ -d aarch64-linux-android-4.9 ] || git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b pie-gsi --depth 1
+    GCC_PATH="$TMPDOWN/aarch64-linux-android-4.9"
     if $deviceinfo_kernel_clang_compile; then
-        [ -d master ] || git clone https://github.com/kdrag0n/proton-clang --depth 1
+        [ -d proton-clang ] || git clone https://github.com/kdrag0n/proton-clang -b master --depth 1
         CLANG_PATH="$TMPDOWN/proton-clang"
-        rm -rf "$TMPDOWN/proton-clang/.git" "$TMPDOWN/proton-clang/
     fi
     if [ "$deviceinfo_arch" == "aarch64" ]; then
         [ -d arm-linux-androideabi-4.9 ] || git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b pie-gsi --depth 1
