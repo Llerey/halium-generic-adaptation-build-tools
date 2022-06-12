@@ -1,8 +1,6 @@
 #!/bin/bash
 set -ex
 
-export PATH="$HOME/toolchains/proton-clang/bin:$PATH"
-
 TMPDOWN=$1
 INSTALL_MOD_PATH=$2
 HERE=$(pwd)
@@ -22,7 +20,7 @@ case "$deviceinfo_arch" in
 esac
 
 export ARCH
-export CROSS_COMPILE="${deviceinfo_arch}-linux-android-"
+export CROSS_COMPILE="$HOME/toolchains/proton-clang/bin/${deviceinfo_arch}-linux-android-"
 if [ "$ARCH" == "arm64" ]; then
     export CROSS_COMPILE_ARM32=arm-linux-androideabi-
 fi
@@ -35,6 +33,7 @@ if [ -n "$LD" ]; then
 fi
 
 cd "$KERNEL_DIR"
+make -o=out
 make O="$OUT" $MAKEOPTS $deviceinfo_kernel_defconfig
 make O="$OUT" $MAKEOPTS -j$(nproc --all)
 make O="$OUT" $MAKEOPTS INSTALL_MOD_STRIP=1 INSTALL_MOD_PATH="$INSTALL_MOD_PATH" modules_install
