@@ -32,6 +32,9 @@ if [ -n "$LD" ]; then
     MAKEOPTS+=" LD=$LD"
 fi
 
+CC=clang
+GCC=clang
+
 cd "$KERNEL_DIR"
 make -o=out
 make O="$OUT" $MAKEOPTS $deviceinfo_kernel_defconfig
