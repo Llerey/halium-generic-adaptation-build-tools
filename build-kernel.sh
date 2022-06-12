@@ -20,7 +20,7 @@ case "$deviceinfo_arch" in
 esac
 
 export ARCH
-export CROSS_COMPILE="$HOME/toolchains/proton-clang/bin/${deviceinfo_arch}-linux-android-"
+export CROSS_COMPILE="$HOME/toolchains/proton-clang/bin/aarch64-linux-android-"
 if [ "$ARCH" == "arm64" ]; then
     export CROSS_COMPILE_ARM32=arm-linux-androideabi-
 fi
@@ -33,7 +33,6 @@ if [ -n "$LD" ]; then
 fi
 
 CC=clang
-GCC=clang
 
 cd "$KERNEL_DIR"
 make -o=out
